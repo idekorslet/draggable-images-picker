@@ -14,3 +14,6 @@ This class is the combined result of two packages, namely:<br>
 useful for selecting several images at once and the displayed image can be moved position
 
 video:<br>
+
+https://github.com/idekorslet/draggable-images-picker/assets/80518183/9ec1287a-0d2f-4d9f-95f1-289e0e4c19ea
+
