@@ -1,4 +1,4 @@
-# draggable-multiple-images-picker
+# draggable-images-picker
 
 Class ini adalah hasil gabungan dari dua package, yaitu:
   1. <a href="https://pub.dev/packages/reorderables">reorderables</a>
