@@ -7,11 +7,11 @@ import 'package:reorderables/reorderables.dart';
 ///  1. image_picker --> https://pub.dev/packages/image_picker
 ///  2. reorderables --> https://pub.dev/packages/reorderables
 
-const double containerImageHeight = 80;
-const double containerImageWidth = 80;
-const double mainContainerHeight = 16;
-const double mainContainerWidth = 36;
-const showMainText = true;
+const double _containerImageHeight = 80;
+const double _containerImageWidth = 80;
+const double _mainContainerHeight = 16;
+const double _mainContainerWidth = 36;
+const _showMainText = true;
 
 class DraggableImagesPicker {
   List<XFile> images = [];
