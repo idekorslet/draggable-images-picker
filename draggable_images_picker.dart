@@ -108,10 +108,10 @@ class DraggableImagesPicker {
         ),
 
         /// main text for first image
-        imgIndex == 0 && showMainText
+        imgIndex == 0 && _showMainText
         ? Positioned(
-          top: containerImageHeight - mainContainerHeight - 6,
-          left: containerImageWidth - mainContainerWidth - (mainContainerWidth / 2),
+          top: _containerImageHeight - _mainContainerHeight - 6,
+          left: _containerImageWidth - _mainContainerWidth - (_mainContainerWidth / 2),
           child: Container(
             height: 16,
             width: 36,
@@ -152,8 +152,8 @@ class DraggableImagesPicker {
 
   Widget _imageCaptureContainer({bool asImageCapture=false, XFile? xfileImage, required int containerIndex}) {
     return Container(
-      height: containerImageHeight,
-      width: containerImageWidth,
+      height: _containerImageHeight,
+      width: _containerImageWidth,
       decoration: const BoxDecoration(
         color: Colors.grey,
       ),
