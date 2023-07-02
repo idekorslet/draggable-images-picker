@@ -25,6 +25,10 @@ class DraggableImagesPicker {
   late Function _setState;
   late ReorderableWrap wrappedImages;
 
+  final int maxImageCount;
+
+  DraggableImagesPicker({this.maxImageCount=5});
+
   void init(Function setState) {
     imageContainerList.add(_imageCaptureContainer(asImageCapture: true, containerIndex: 0));
     _setState = setState;
@@ -166,7 +170,15 @@ class DraggableImagesPicker {
 
                 //you can use ImageCourse.camera for Camera capture
                 if (pickedfiles.isNotEmpty){
-                  images.addAll(pickedfiles);
+                  
+                  if (pickedfiles.length + images.length > maxImageCount) {
+                    pickedfiles = [];
+                    debugPrint("[draggable_images_picker] Only $maxImageCount image allowed");
+                  }
+                  else {
+                    images.addAll(pickedfiles);
+                  }
+                  
                 } else {
                   debugPrint("[draggable_images_picker] No image is selected.");
                 }
