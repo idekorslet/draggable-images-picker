@@ -12,6 +12,7 @@ const double _containerImageWidth = 80;
 const double _mainContainerHeight = 16;
 const double _mainContainerWidth = 36;
 const _showMainText = true;
+const double _iconSize = 40;
 
 class DraggableImagesPicker {
   List<XFile> images = [];
@@ -184,6 +185,7 @@ class DraggableImagesPicker {
           child: asImageCapture
           ? const Icon(
               Icons.camera_alt,
+              size: _iconSize,
             )
           : _showPickedImages(img: xfileImage, imgIndex: containerIndex)
       ),
