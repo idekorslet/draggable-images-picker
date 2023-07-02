@@ -177,15 +177,14 @@ class DraggableImagesPicker {
                   }
                   else {
                     images.addAll(pickedfiles);
+                    _setState(() {
+                      
+                    });
                   }
                   
                 } else {
                   debugPrint("[draggable_images_picker] No image is selected.");
                 }
-
-                _setState(() {
-
-                });
               } catch (e) {
                 debugPrint("[draggable_images_picker] error while picking file. \n$e");
               }
