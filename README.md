@@ -15,7 +15,8 @@ useful for selecting several images at once and the displayed image can be moved
 
 video:<br>
 
-https://github.com/idekorslet/draggable-images-picker/assets/80518183/9ec1287a-0d2f-4d9f-95f1-289e0e4c19ea 
+https://github.com/idekorslet/draggable-images-picker/assets/80518183/27a99a7f-4d59-43e1-b955-d5a42bd3bf5d
+
 
 <br>
 <h3>How to use</h3>
