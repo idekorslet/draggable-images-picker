@@ -26,8 +26,9 @@ class DraggableImagesPicker {
   late ReorderableWrap wrappedImages;
 
   final int maxImageCount;
+  final BuildContext localContext;
 
-  DraggableImagesPicker({this.maxImageCount=5});
+  DraggableImagesPicker({this.maxImageCount=5, required this.localContext});
 
   void init(Function setState) {
     imageContainerList.add(_imageCaptureContainer(asImageCapture: true, containerIndex: 0));
@@ -174,6 +175,7 @@ class DraggableImagesPicker {
                   if (pickedfiles.length + images.length > maxImageCount) {
                     pickedfiles = [];
                     debugPrint("[draggable_images_picker] Only $maxImageCount image allowed");
+                    showAlert();
                   }
                   else {
                     images.addAll(pickedfiles);
@@ -201,5 +203,31 @@ class DraggableImagesPicker {
           : _showPickedImages(img: xfileImage, imgIndex: containerIndex)
       ),
     );
+  }
+
+  Future<void> showAlert() async {
+    if (localContext.mounted) {
+      await showDialog(context: localContext, builder: (ctx) {
+        return AlertDialog(
+          title: const Text("Warning"),
+          content: Text("Only $maxImageCount image allowed",
+            style: const TextStyle(fontSize: 16),
+          ),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10.0))
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(localContext);
+              },
+              child: const Text('Ok',
+                style: TextStyle(fontSize: 16),
+              ),
+            )
+          ],
+        );
+      });
+    }
   }
 }
