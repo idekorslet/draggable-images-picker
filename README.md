@@ -22,12 +22,20 @@ https://github.com/idekorslet/draggable-images-picker/assets/80518183/9ec1287a-0
   
 1. buat objek baru / create new object <br>
 
+&emsp;&emsp; without BuildContext version:
 ```dart
   DraggableImagesPicker draggableImagesPicker = DraggableImagesPicker(maxImageCount: 8);
-```  
+```
+
+&emsp;&emsp; BuildContext version:
+```dart
+  late DraggableImagesPicker draggableImagesPicker;
+  
+```
 
 2. panggil method init di initState() / call init method in initState()
 
+&emsp;&emsp; without BuildContext version:
 ```dart
   @override
   void initState() {
@@ -35,6 +43,16 @@ https://github.com/idekorslet/draggable-images-picker/assets/80518183/9ec1287a-0
     super.initState();
     draggableImagesPicker.init(setState);
   }
+```
+
+&emsp;&emsp; BuildContext version:
+```dart
+  @override
+    void initState() {
+      super.initState();
+      draggableImagesPicker = DraggableImagesPicker(maxImageCount: 8, localContext: context);
+      draggableImagesPicker.init(setState);
+    }
 ```
 
 3. panggil method dispose di dispose() method / call dispose method in dispose()
