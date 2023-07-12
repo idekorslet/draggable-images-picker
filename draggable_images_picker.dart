@@ -22,6 +22,7 @@ class DraggableImagesPicker {
 
   bool _allowReorderable = false;
   bool _isDragging = false;
+  bool isPositionChanged = false;
   late Function _setState;
   late ReorderableWrap wrappedImages;
 
@@ -54,6 +55,9 @@ class DraggableImagesPicker {
         XFile tmpImg = images.removeAt(oldIndex);
         images.insert(newIndex, tmpImg);
       });
+
+      debugPrint('[draggable_images_picker] position changed');
+      isPositionChanged = true;
     }
   }
 
@@ -61,6 +65,7 @@ class DraggableImagesPicker {
     _reOrderImageList();
     _allowReorderable = imageContainerList.length > 2 ? true : false;
     _isDragging = false;
+    isPositionChanged = false;
 
     wrappedImages = ReorderableWrap(
         controller: _scrollController,
