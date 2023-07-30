@@ -29,8 +29,11 @@ class DraggableImagesPicker {
   bool _allowReorderable = false;
   bool _isDragging = false;
   bool isPositionChanged = false;
+  bool _isImageChanged = false;
   late Function _setState;
   late ReorderableWrap wrappedImages;
+
+  bool isImageChanged() => _isImageChanged;
 
   void init(Function setState) {
     // print('[draggable_images_picker] init');
@@ -77,6 +80,7 @@ class DraggableImagesPicker {
 
       debugPrint('[draggable_images_picker] position changed');
       isPositionChanged = true;
+      _isImageChanged = true;
     }
   }
 
@@ -169,6 +173,8 @@ class DraggableImagesPicker {
                 /// delete image from product image list
                 debugPrint('[draggable_images_picker] image index $imgIndex removed');
 
+                _isImageChanged = true;
+
                 _setState(() {
                   images.removeAt(imgIndex);
                   imageContainerList.removeAt(imgIndex);
@@ -208,6 +214,7 @@ class DraggableImagesPicker {
                     showAlert();
                   }
                   else {
+                    _isImageChanged = true;
                     images.addAll(pickedFiles);
                     _setState(() {
 
